@@ -1,30 +1,17 @@
 import './App.css';
 import React from 'react';
 import WeatherFetch from './components/weather-fetch';
-//import Outcome from './components/outcome';
 
 function App() {
 
-
-  //useEffect(() =>{
-    //const getData = async () => {
-     // const data = await WeatherFetch('paris');
-     // console.log(data);
-   // };
-   // getData();
-  //}, [])
- 
   return (
     <section className='app-container'>
       <div className="App">
         <h1>Weather app</h1>
         <div className='overlay'>
-
           <div className='container'>
-            <div><WeatherFetch/></div>
-          <div></div>
+            <WeatherFetch/>
         </div>
-        
         </div>
     </div>
     </section>
