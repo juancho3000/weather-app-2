@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import WeatherFetch from './components/weather-fetch';
-import Outcome from './components/outcome';
+//import Outcome from './components/outcome';
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
 
           <div className='container'>
             <div><WeatherFetch/></div>
-          <div><Outcome/></div>
+          <div></div>
         </div>
         
         </div>

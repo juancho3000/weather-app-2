@@ -30,8 +30,18 @@ const WeatherFetch = () => {
             onKeyPress={search}
             />
             <button onClick={search}>click here</button>
-          
           </div>
+          <div>
+            {(typeof weather.main != "undefined") ?( 
+                <div className='temperature-results'>
+                <h3>{weather.name},{weather.sys.country}</h3>
+                <h3>normal weather</h3>
+            <div className='degree'>
+                    <h1>32 C</h1>
+                </div>
+                </div>   
+            ) : ('')}    
+         </div>
         </div>
     )
 };
