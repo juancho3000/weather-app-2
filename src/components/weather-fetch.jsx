@@ -1,24 +1,39 @@
+import { useState } from "react";
+
 const API_KEY = "fcf989ca6812a03a6612f1f228806100";
- //const API_BASE_URL = 'http://api.openweathermap.org/';
+//const API_URL = 'http://api.openweathermap.org/data/2.5';
 
-const WeatherFetch = async (city, units = 'metric') => {
- const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=${API_KEY}&units=${units}`;
+const WeatherFetch = () => {
+    const [city, setCity] = useState('');
+    const [weather, setWeather] = useState({});
 
- const data = await fetch(API_URL).then((res) => res.json())
-  .then((data) => data);
- console.log(data);
-
-  const {weather, 
-    main: { temp, feels_like},
-    sys:{ country },
-    name,
-} = data;
-
-const {description} = weather[0];
-
-return(
-description, temp, feels_like, country, name
-);
+    const search = evt =>{
+        if(evt.key === "Enter"){
+            fetch(
+                `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+            )
+            .then((res)=>res.json())
+            .then(result => {
+             setWeather(result);
+             setCity('');
+             console.log(result);
+            })
+         }
+        
+    };
+    return(
+        <div>
+            <div className='input'>
+            <input type="text" name="city" placeholder="enter name"
+            onChange={e => setCity(e.target.value)}
+            value={city}
+            onKeyPress={search}
+            />
+            <button onClick={search}>click here</button>
+          
+          </div>
+        </div>
+    )
 };
 
 export default WeatherFetch;

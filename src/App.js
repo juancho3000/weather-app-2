@@ -1,18 +1,18 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import WeatherFetch from './components/weather-fetch';
 import Outcome from './components/outcome';
 
 function App() {
 
 
-  useEffect(() =>{
-    const getData = async () => {
-      const data = await WeatherFetch('paris');
-      console.log(data);
-    };
-    getData();
-  }, [])
+  //useEffect(() =>{
+    //const getData = async () => {
+     // const data = await WeatherFetch('paris');
+     // console.log(data);
+   // };
+   // getData();
+  //}, [])
  
   return (
     <section className='app-container'>
@@ -21,11 +21,7 @@ function App() {
         <div className='overlay'>
 
           <div className='container'>
-          <div className='input'>
-            <input type="text" name="city" placeholder="enter name"/>
-            <button>click here</button>
-          
-          </div>
+            <div><WeatherFetch/></div>
           <div><Outcome/></div>
         </div>
         
